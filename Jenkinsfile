@@ -7,14 +7,14 @@ pipeline {
     stages {
         stage ('Initialize') {
             steps {
-                sh 'echo "PATH = ${PATH}"'
-                sh 'echo "M2_HOME = ${M2_HOME}"'
+                bat(/echo "PATH = ${PATH}"/)
+                bat(/echo "M2_HOME = ${M2_HOME}"/)
             }
         }
 
         stage ('Build') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+                bat(/mvn -Dmaven.test.failure.ignore=true install/) 
             }
             post {
                 success {
